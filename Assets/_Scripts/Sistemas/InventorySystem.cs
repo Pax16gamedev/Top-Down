@@ -3,21 +3,38 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
-    [SerializeField] GameObject inventoryPanel;
-    [SerializeField] ItemSlot[] slots;
-    private ItemInfo[] itemInfo;
+    public static InventorySystem Instance;
 
-    private List<ItemSO> items = new List<ItemSO>();
+    [SerializeField] GameObject inventoryPanel;
+    [SerializeField] ItemSlot[] slotsInventario;
+
+    [SerializeField] ItemSlot[] quickSlots;
+
+    private ItemInfo[] itemInfo;
+    private List<ItemSO> itemsInventario = new List<ItemSO>();
 
 
     private int itemsCollected;
 
     private void Awake()
     {
-        itemInfo = new ItemInfo[slots.Length];
-        for (int i = 0; i < slots.Length; i++)
+        if(Instance != null)
         {
-            itemInfo[i] = slots[i].GetComponentInChildren<ItemInfo>();
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        InitSlots();
+    }
+
+    private void InitSlots()
+    {
+        itemInfo = new ItemInfo[slotsInventario.Length];
+        for(int i = 0; i < slotsInventario.Length; i++)
+        {
+            itemInfo[i] = slotsInventario[i].GetComponentInChildren<ItemInfo>();
         }
     }
 
@@ -27,15 +44,28 @@ public class InventorySystem : MonoBehaviour
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         }
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            quickSlots[0].GetComponentInChildren<ItemInfo>().UseItem();
+        }
     }
 
-    public void NewItem(ItemSO item)
+    public void AddNewItem(ItemSO item)
     {
-        items.Add(item);
-        slots[itemsCollected].gameObject.SetActive(true);
+        if(itemsInventario.Contains(item))
+        {
+            // Actualizo
+            int indexOfStackItem = itemsInventario.IndexOf(item);
+            itemInfo[indexOfStackItem].UpdateStackInfo();
+        }
+        else
+        {
+            itemsInventario.Add(item);
+            slotsInventario[itemsCollected].gameObject.SetActive(true);
 
-        itemInfo[itemsCollected].FeedData(item);
+            itemInfo[itemsCollected].FeedData(item);
 
-        itemsCollected++;
+            itemsCollected++;
+        }
     }
 }

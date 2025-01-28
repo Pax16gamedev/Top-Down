@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         {
             CheckDestinationPoint();
 
+            playerAnimations.SetMovement(horizontalInput, verticalInput);
+
             forwardCollider = player.PlayerCollisions.CheckForCollisions();
 
             if (!forwardCollider || forwardCollider.gameObject.CompareTag(Constants.TAGS.DOOR))
@@ -86,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
     {
         isMoving = true;
         playerAnimations.IsMoving(true);
-        playerAnimations.SetMovement(horizontalInput, verticalInput);
 
         while (transform.position != destinationPoint)
         {

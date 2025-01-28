@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,14 +10,18 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
     private InventorySystem inventorySystem;
 
     public InventorySystem InventorySystem => inventorySystem;
-
-    public Vector3 NewPosition { get => newPosition; }
-    public Vector3 NewOrientation { get => newOrientation; }
+    public Vector3 NewPosition => newPosition;
+    public Vector3 NewOrientation => newOrientation;
 
     [NonSerialized] private Vector3 newPosition = new Vector3(2.5f, 2.5f); // NonSerialized, para que se resetee entre sesiones (partidas)
     [NonSerialized] private Vector3 newOrientation;
 
-    private int collectedCoins;
+    [NonSerialized] private int collectedCoins;
+    public int CollectedCoins => collectedCoins;
+
+    public Dictionary<int, bool> NonPersistentItems { get => nonPersistentItems; set => nonPersistentItems = value; }
+
+    [NonSerialized] private Dictionary<int, bool> nonPersistentItems = new Dictionary<int, bool>();
 
     private void OnEnable()
     {

@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour, IInteractable
 {
-    [SerializeField] ItemSO item;
+    [SerializeField] protected ItemSO item;
 
-    public void Interact()
+    public virtual void Interact()
     {
-        GameManagerSO.Instance.InventorySystem.NewItem(item);
+        GameManagerSO.Instance.InventorySystem.AddNewItem(item);
         Destroy(gameObject);
     }
 }
