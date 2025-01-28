@@ -14,7 +14,8 @@ public class SingletonScriptableObject<T> : ScriptableObject where T : Scriptabl
 
                 if (_instance == null)
                 {
-                    Debug.LogError($"No se encontró una instancia de {typeof(T).Name} en Resources. Asegúrate de tenerla en una carpeta llamada 'Resources'.");
+                    Debug.LogError($"No se encontrÃ³ una instancia de {typeof(T).Name} en Resources/Managers. " +
+                        $"AsegÃºrate de tenerla en una carpeta llamada 'Resources/Managers'.");
                 }
             }
             return _instance;

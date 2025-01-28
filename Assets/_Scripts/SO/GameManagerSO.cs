@@ -26,6 +26,9 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadedScene;
+
+        // Hago la llamada 2 veces porque nada más cargar en la escena no se carga ni el player ni el inventory
+        OnLoadedScene(SceneManager.GetActiveScene(), LoadSceneMode.Single); 
     }
 
     private void OnLoadedScene(Scene arg0, LoadSceneMode arg1)
