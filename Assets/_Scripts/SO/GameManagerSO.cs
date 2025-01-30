@@ -33,8 +33,10 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
 
     private void OnLoadedScene(Scene arg0, LoadSceneMode arg1)
     {
-        player = FindObjectOfType<Player>();
-        inventorySystem = FindObjectOfType<InventorySystem>();
+        if(!player)
+            player = FindObjectOfType<Player>();
+        if(!inventorySystem)
+            inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
     private void OnDisable()
