@@ -18,4 +18,9 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetFloat(Constants.ANIMATIONS.PLAYER.HORIZONTAL_INPUT, horizontalInput);
         animator.SetFloat(Constants.ANIMATIONS.PLAYER.VERTICAL_INPUT, verticalInput);
     }
+
+    public void AttackAnim()
+    {
+        animator.SetTrigger("Attack");
+    }
 }

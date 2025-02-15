@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimations playerAnimations;
 
     [SerializeField] float speed = 5;
-    
+    [SerializeField] float attackRadius = 0.75f;
+    [SerializeField] float timeBetweenAttcks;
 
     private float horizontalInput;
     private float verticalInput;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 destinationPoint;
     private bool isMoving;
 
+    private bool canAttack = true;
     
     private Vector3 lastInput;
 
@@ -101,5 +103,31 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
     }
 
-    
+    public void Attack()
+    {
+        //if(canAttack)
+        {
+            canAttack = false;
+            playerAnimations.AttackAnim();
+            foreach(Collider2D coll in Physics2D.OverlapCircleAll(transform.position, attackRadius))
+            {
+                coll.gameObject.TryGetComponent<Enemy>(out Enemy enemy);
+                enemy.TakeDamage(1);
+            }
+            StartCoroutine(AttackCooldown(timeBetweenAttcks));
+        }
+        
+    }
+
+    private IEnumerator AttackCooldown(float attackCoolown)
+    {
+        yield return new WaitForSeconds(attackCoolown);
+        canAttack = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
 }

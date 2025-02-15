@@ -68,4 +68,9 @@ public class InventorySystem : MonoBehaviour
             itemsCollected++;
         }
     }
+
+    public void UseSelectedItem(ItemSO item)
+    {
+        //TODO
+    }
 }
