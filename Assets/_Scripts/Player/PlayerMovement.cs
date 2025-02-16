@@ -111,8 +111,8 @@ public class PlayerMovement : MonoBehaviour
             playerAnimations.AttackAnim();
             foreach(Collider2D coll in Physics2D.OverlapCircleAll(transform.position, attackRadius))
             {
-                coll.gameObject.TryGetComponent<Enemy>(out Enemy enemy);
-                enemy.TakeDamage(1);
+                if(coll.gameObject.TryGetComponent(out Enemy enemy))
+                    enemy.TakeDamage(1);
             }
             StartCoroutine(AttackCooldown(timeBetweenAttcks));
         }
