@@ -10,26 +10,46 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     [SerializeField] RectTransform selectedBackground;
     [SerializeField] bool isQuickSlot;
 
-    private ItemSlot synchSlot;
+    private ItemSlot syncSlot;
+    private ItemSlot pairedSlot;
     private event Action<ItemSlot> OnSlotUpdate;
 
     public ItemInfo ItemInfo { get; private set; }
-    public ItemSlot QuickSlot { get; private set; }
-    public ItemSlot SynchSlot
+    public ItemSlot PairedSlot
     {
-        get => synchSlot;
+        get => pairedSlot;
+        private set
+        {
+            if(pairedSlot == value)
+                return;
+            var prevSlot = pairedSlot;
+            pairedSlot = value;
+            if(prevSlot)
+                prevSlot.PairedSlot = null;
+            pairedSlot = value;
+            if(pairedSlot)
+                pairedSlot.PairedSlot = this;
+
+            if(isQuickSlot)
+                ItemInfo.Stack = pairedSlot ? pairedSlot.ItemInfo.Stack : null;
+        }
+    }
+
+    public ItemSlot SyncSlot
+    {
+        get => syncSlot;
         set
         {
-            if(synchSlot == value)
+            if(syncSlot == value)
                 return;
 
-            if(synchSlot != null)
-                synchSlot.OnSlotUpdate -= OnSlotUpdated;
-            synchSlot = value;
-            if(synchSlot != null)
-                synchSlot.OnSlotUpdate += OnSlotUpdated;
+            if(syncSlot != null)
+                syncSlot.OnSlotUpdate -= OnSlotUpdated;
+            syncSlot = value;
+            if(syncSlot != null)
+                syncSlot.OnSlotUpdate += OnSlotUpdated;
 
-            ItemInfo.SynchInfo = synchSlot.ItemInfo;
+            ItemInfo.SynchInfo = syncSlot.ItemInfo;
 
             OnSlotUpdated(value);
         }
@@ -61,22 +81,22 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public virtual void OnDrop(PointerEventData eventData)
     {
         Transform draggedItemTransform = eventData.pointerDrag.transform;
-        ItemInfo draggedItemInfo = draggedItemTransform.GetComponent<ItemInfo>();
+        if(draggedItemTransform.TryGetComponent(out ItemInfo draggedItemInfo))
+        {
+            if(draggedItemInfo.Slot.isQuickSlot == isQuickSlot)
+            {
+                // If both slots are quickslots, or both slots are inventory slots, and target has something, just swap values and quickslot references
+                if(!isQuickSlot)
+                    (ItemInfo.Stack, draggedItemInfo.Stack) = (draggedItemInfo.Stack, ItemInfo.Stack);
 
-        if(draggedItemInfo.Slot.isQuickSlot == isQuickSlot) 
-        {
-            // If both slotas are quickslots, or both slots are inventory slots, just swap values and quickslot references
-            (ItemInfo.Stack, draggedItemInfo.Stack) = (draggedItemInfo.Stack, ItemInfo.Stack);
-            (ItemInfo.Slot.QuickSlot, draggedItemInfo.Slot.QuickSlot) = (draggedItemInfo.Slot.QuickSlot, ItemInfo.Slot.QuickSlot);
+                (PairedSlot, draggedItemInfo.Slot.PairedSlot) = (draggedItemInfo.Slot.PairedSlot, PairedSlot);
+            }
+            else if(isQuickSlot)
+            {
+                // If this is a quickslot, and dragged is inventory, pair quickslot
+                PairedSlot = draggedItemInfo.Slot;
+            }
+            // If this is an inventory slot, and dragged is quickslot, ignore
         }
-        else if(isQuickSlot)
-        {
-            // If this is a quickslot, and dragged is inventory, remove the original quickslot if any and reasign to this one
-            if(draggedItemInfo.Slot.QuickSlot)
-                draggedItemInfo.Slot.QuickSlot.ItemInfo.Stack = null;
-            ItemInfo.Stack = draggedItemInfo.Stack;
-            draggedItemInfo.Slot.QuickSlot = this;
-        }
-        // If this is an inventory slot, and dragged is quickslot, ignore
     }
 }

@@ -74,7 +74,7 @@ public class InventorySystem : MonoBehaviour
             inventoryQuickSlots[i].Selected = i == 0;
 
             hudQuickSlots[i] = Instantiate(hudQuickSlotPrefab, hudQuickSlotGroup.transform).GetComponent<ItemSlot>();
-            hudQuickSlots[i].SynchSlot = inventoryQuickSlots[i];
+            hudQuickSlots[i].SyncSlot = inventoryQuickSlots[i];
         }
 
         itemInfo = new ItemInfo[inventorySlots.Length];
