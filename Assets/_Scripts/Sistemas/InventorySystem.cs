@@ -125,19 +125,14 @@ public class InventorySystem : MonoBehaviour
 
     public ItemStack PeekItem()
     {
-        var stack = hudQuickSlots[selectedQuickSlot].ItemInfo.Stack;
+        var stack = inventoryQuickSlots[selectedQuickSlot].ItemInfo.Stack;
         return stack ? stack : null;
     }
 
     public (ItemSO Item, int Count) UseItem(int count = 1)
     {
-        var stack = hudQuickSlots[selectedQuickSlot].ItemInfo.Stack;
+        var stack = inventoryQuickSlots[selectedQuickSlot].ItemInfo.Stack;
         var used = stack ? stack.Use(count) : 0;
         return used > 0 ? (stack.Item, used) : (null, 0);
-    }
-
-    public void UseSelectedItem(ItemSO item)
-    {
-        //TODO
     }
 }

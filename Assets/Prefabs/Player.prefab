@@ -240,6 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5caaffbad32aa247b8f7ac0d5e5d050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bomb: {fileID: 1856448559627991979, guid: bbe237920d0aeb841be4eba54a5139f2, type: 3}
+  swordItem: {fileID: 11400000, guid: 91ca1f5ea83322d42b5576ca77d30ad6, type: 2}
+  bombItem: {fileID: 11400000, guid: 5ca82e7e92752794e854275990bfae2a, type: 2}
 --- !u!114 &870347121748842520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  attackRadius: 0.75
+  timeBetweenAttcks: 0
 --- !u!114 &2255257011061255076
 MonoBehaviour:
   m_ObjectHideFlags: 0

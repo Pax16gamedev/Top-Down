@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject bomb;
+    [SerializeField] ItemSO swordItem;
+    [SerializeField] ItemSO bombItem;
 
     private void Awake()
     {
@@ -35,15 +37,18 @@ public class Player : MonoBehaviour
         {
             UseItem();
         }
-
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            playerMovement.Attack();
-        }
     }
 
     private void UseItem()
     {
-        Instantiate(bomb, transform.position + Vector3.forward*2, Quaternion.identity);
+        var usedItem = InventorySystem.Instance.UseItem();
+        if(usedItem.Item == swordItem)
+        {
+            playerMovement.Attack();
+        }
+        else if(usedItem.Item == bombItem)
+        {
+            Instantiate(bomb, transform.position + Vector3.forward * 2, Quaternion.identity);
+        }
     }
 }
