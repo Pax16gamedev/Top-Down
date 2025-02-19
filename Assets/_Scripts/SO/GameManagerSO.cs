@@ -12,9 +12,11 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
     public InventorySystem InventorySystem => inventorySystem;
     public Vector3 NewPosition => newPosition;
     public Vector3 NewOrientation => newOrientation;
+    public bool SceneLoaded => sceneLoaded;
 
     [NonSerialized] private Vector3 newPosition = new Vector3(2.5f, 2.5f); // NonSerialized, para que se resetee entre sesiones (partidas)
     [NonSerialized] private Vector3 newOrientation;
+    [NonSerialized] private bool sceneLoaded = false;
 
     [NonSerialized] private int collectedCoins;
     public int CollectedCoins => collectedCoins;
@@ -51,6 +53,7 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
 
     public void LoadNewScene(Vector3 newPosition, Vector2 newOrientation, int newSceneIndex)
     {
+        sceneLoaded = true;
         this.newPosition = newPosition;
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);

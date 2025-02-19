@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/LevelCave.unity
     guid: f3125abd42596084f9cc863a15e4c197
+  - enabled: 1
+    path: Assets/Scenes/Pueblo.unity
+    guid: 6a0e5a7538cc3a34b8f4e0cd22c4deac
+  - enabled: 1
+    path: Assets/Scenes/Puente.unity
+    guid: db84a4aa21937b84f9b37a78ceee5403
+  - enabled: 1
+    path: Assets/Scenes/Cueva.unity
+    guid: 8fa8e5b4153ffeb45990f2d6c739c257
+  - enabled: 1
+    path: Assets/Scenes/Interior_Casa.unity
+    guid: 5a404d739ea46354b8ec79c748e80d34
   m_configObjects: {}
