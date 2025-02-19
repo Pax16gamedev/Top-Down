@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
-using static UnityEditor.Progress;
 
 public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {

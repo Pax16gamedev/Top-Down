@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/LevelCave.unity
     guid: f3125abd42596084f9cc863a15e4c197
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a85f812fd3b75d843b832da049233717
+  - enabled: 1
     path: Assets/Scenes/Pueblo.unity
     guid: 6a0e5a7538cc3a34b8f4e0cd22c4deac
   - enabled: 1

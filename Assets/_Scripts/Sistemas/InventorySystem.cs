@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
@@ -16,6 +17,7 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] GridLayoutGroup inventoryQuickSlotGrid;
     [SerializeField] GridLayoutGroup hudQuickSlotGroup;
     [SerializeField] GridLayoutGroup healthBarGroup;
+    [SerializeField] Image gameoverImage;
 
     [SerializeField] GameObject inventorySlotPrefab;
     [SerializeField] GameObject inventoryQuickSlotPrefab;
@@ -25,7 +27,8 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] int selectedQuickSlot;
     [SerializeField] int inventorySize;
     [SerializeField] int quickSlotSize;
-    [SerializeField] private float health = 10;
+    [SerializeField] private float initialHealth = 5;
+    private float health;
 
     ItemSlot[] inventorySlots;
     ItemSlot[] inventoryQuickSlots;
@@ -48,6 +51,7 @@ public class InventorySystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitSlots();
+        health = initialHealth;
         SetHealth((int)health);
     }
 
@@ -91,6 +95,23 @@ public class InventorySystem : MonoBehaviour
 
     void Update()
     {
+        if(gameoverImage.isActiveAndEnabled && Input.anyKeyDown)
+        {
+            foreach(var slot in inventorySlots.Concat(inventoryQuickSlots).Concat(hudQuickSlots))
+                if(slot && slot.ItemInfo)
+                    slot.ItemInfo.Stack = null;
+            foreach(var itemInfo in itemInfo)
+                itemInfo.Stack = null;
+            GameManagerSO.Instance.NonPersistentItems.Clear();
+            health = initialHealth;
+            itemsInventario.Clear();
+            foreach(var slot in inventorySlots)
+                slot.gameObject.SetActive(false);
+            itemsCollected = 0;
+            gameoverImage.gameObject.SetActive(false);
+            SceneManager.LoadScene(1);
+        }
+
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
@@ -157,8 +178,6 @@ public class InventorySystem : MonoBehaviour
         SetHealth((int)health);
 
         if(health <= 0)
-        {
-            // TODO: Game over
-        }
+            gameoverImage.gameObject.SetActive(true);
     }
 }

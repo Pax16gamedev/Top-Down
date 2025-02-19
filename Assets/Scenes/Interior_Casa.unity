@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPosition: {x: -1.5, y: 3.5}
   nextOrientation: {x: 0, y: -1}
-  nextSceneIndex: 0
+  nextSceneIndex: 1
 --- !u!61 &2049426727
 BoxCollider2D:
   m_ObjectHideFlags: 0
