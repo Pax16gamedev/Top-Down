@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Chicken_01_25
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 40
+        width: 13
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c345af07725f57343af4d0e36cbe9aac
+      internalID: 389557338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_26
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 40
+        width: 13
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2034127373ce7d4a825209b676fe9da
+      internalID: -1980153123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_27
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 40
+        width: 13
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf99bbfcd927a0845ae7874e629e7efd
+      internalID: 1754551989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_28
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 40
+        width: 13
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ec5dd687c976846b0d9ee008b1ae09
+      internalID: -186413138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 40
+        width: 13
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b98ddef6dc3cb4488d9b782b8b3248
+      internalID: 547610451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_30
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 40
+        width: 13
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136e2f1b8111d8e4ba1b2531c0683479
+      internalID: 1462382094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_31
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 40
+        width: 13
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cf0c0ddf15fff4e831b50efe0b5dfc
+      internalID: -1356344631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_01_32
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 40
+        width: 13
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b8f7966f967634b957dc73e8a04fc0
+      internalID: 87158129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,45 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chicken_01_0: 542809561
+      Chicken_01_1: 1487333840
+      Chicken_01_10: 258009213
+      Chicken_01_11: 664561926
+      Chicken_01_12: -1954222720
+      Chicken_01_13: -759546542
+      Chicken_01_14: -626928571
+      Chicken_01_15: 263803981
+      Chicken_01_16: -1324350373
+      Chicken_01_17: 700543568
+      Chicken_01_18: -565779320
+      Chicken_01_19: -386971053
+      Chicken_01_2: -656665828
+      Chicken_01_20: 1309046135
+      Chicken_01_21: 369677699
+      Chicken_01_22: -618725917
+      Chicken_01_23: -691144277
+      Chicken_01_24: -461301471
+      Chicken_01_25: 389557338
+      Chicken_01_26: -1980153123
+      Chicken_01_27: 1754551989
+      Chicken_01_28: -186413138
+      Chicken_01_29: 547610451
+      Chicken_01_3: -238174230
+      Chicken_01_30: 1462382094
+      Chicken_01_31: -1356344631
+      Chicken_01_32: 87158129
+      Chicken_01_33: 1904154219
+      Chicken_01_34: 402303793
+      Chicken_01_35: 347530119
+      Chicken_01_36: 1609125202
+      Chicken_01_37: -24258677
+      Chicken_01_4: 1307172835
+      Chicken_01_5: 929339687
+      Chicken_01_6: 132380048
+      Chicken_01_7: -1602636669
+      Chicken_01_8: -761894796
+      Chicken_01_9: 1565504923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
