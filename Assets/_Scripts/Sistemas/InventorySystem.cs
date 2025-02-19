@@ -104,6 +104,7 @@ public class InventorySystem : MonoBehaviour
                 itemInfo.Stack = null;
             GameManagerSO.Instance.NonPersistentItems.Clear();
             health = initialHealth;
+            SetHealth((int)health);
             itemsInventario.Clear();
             foreach(var slot in inventorySlots)
                 slot.gameObject.SetActive(false);
