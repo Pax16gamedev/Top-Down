@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +95,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pig_01_19
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efda4f40f2c042499e553b508d48f82
+      internalID: -1540492589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig_01_20
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03552f5abced74747a0fee9993581537
+      internalID: -572180671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig_01_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113b5c26b2095b440a728d32c3d43e15
+      internalID: 1686751482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig_01_22
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a873d0c9740f0409c383aff48278d2
+      internalID: 2105031444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig_01_23
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdbf8ab53f3d0042b3a339be3353231
+      internalID: -1564866945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig_01_24
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 168
+        width: 21
+        height: 15
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb485bf3332769449d1e7fac17554b6
+      internalID: -1983643438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +232,56 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pig_01_0: -1225302984
+      Pig_01_1: -91635781
+      Pig_01_10: 1328809850
+      Pig_01_11: 1954365817
+      Pig_01_12: -806393231
+      Pig_01_13: -328700624
+      Pig_01_14: 32759160
+      Pig_01_15: -200145176
+      Pig_01_16: 324704884
+      Pig_01_17: 1151173277
+      Pig_01_18: -1049200886
+      Pig_01_19: -1540492589
+      Pig_01_2: 1277500249
+      Pig_01_20: -572180671
+      Pig_01_21: 1686751482
+      Pig_01_22: 2105031444
+      Pig_01_23: -1564866945
+      Pig_01_24: -1983643438
+      Pig_01_25: 811928622
+      Pig_01_26: -1634114348
+      Pig_01_27: -133232876
+      Pig_01_28: 348645906
+      Pig_01_29: 468128029
+      Pig_01_3: 1306716051
+      Pig_01_30: 2087574119
+      Pig_01_31: -1081029868
+      Pig_01_32: 1994373227
+      Pig_01_33: -1506118361
+      Pig_01_34: 1667231248
+      Pig_01_35: 2037322357
+      Pig_01_36: 1621183121
+      Pig_01_37: 1792181033
+      Pig_01_38: 535700065
+      Pig_01_39: 687228404
+      Pig_01_4: 446934026
+      Pig_01_40: -865563570
+      Pig_01_41: 691168566
+      Pig_01_42: 1719557584
+      Pig_01_43: 791300460
+      Pig_01_44: 203399302
+      Pig_01_45: -723265200
+      Pig_01_46: 1394835859
+      Pig_01_47: -1856075690
+      Pig_01_48: -1482672183
+      Pig_01_5: 128183922
+      Pig_01_6: 2039482052
+      Pig_01_7: -1753589005
+      Pig_01_8: -1469174681
+      Pig_01_9: 1393206479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
