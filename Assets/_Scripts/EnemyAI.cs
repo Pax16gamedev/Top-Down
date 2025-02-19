@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyAI : Enemy
 {
+    private SpriteRenderer spriteRenderer;
+
     [Header("Patrulla")]
     public Transform[] patrollPoints;            
     public float patrollSpeed = 2f;            
@@ -18,18 +20,20 @@ public class EnemyAI : Enemy
     [Header("Ataque")]
     public float attackDistance = 1f;            
     public float timeBetweenAttacks = 2f;         
-    private float attackTimer;                    
+    private float attackTimer;
+    
 
     private void Start()
     {
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         attackTimer = timeBetweenAttacks;
     }
 
     private void Update()
     {
-
+        if(player.position.x < transform.position.x) { spriteRenderer.flipX = true; } else { spriteRenderer.flipX = false; }
         Vector2 direccionJugador = (player.position - transform.position).normalized;
 
         // Lanza un raycast para detectar al jugador
