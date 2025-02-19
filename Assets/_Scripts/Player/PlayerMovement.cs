@@ -35,8 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void InitializePlayer()
     {
-        transform.position = GameManagerSO.Instance.NewPosition;
-        playerAnimations.SetMovement(GameManagerSO.Instance.NewOrientation.x, GameManagerSO.Instance.NewOrientation.y);
+        if(GameManagerSO.Instance.SceneLoaded)
+        {
+            transform.position = GameManagerSO.Instance.NewPosition;
+            playerAnimations.SetMovement(GameManagerSO.Instance.NewOrientation.x, GameManagerSO.Instance.NewOrientation.y);
+        }
     }
 
     private void Update()
