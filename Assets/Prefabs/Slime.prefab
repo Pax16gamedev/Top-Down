@@ -151,7 +151,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   patrollSpeed: 2
-  detectionDistance: 5
+  detectionDistance: 3
   playerMask:
     serializedVersion: 2
     m_Bits: 256
