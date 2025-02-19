@@ -19,7 +19,8 @@ public class EnemyAI : Enemy
 
     [Header("Ataque")]
     public float attackDistance = 1f;            
-    public float timeBetweenAttacks = 2f;         
+    public float timeBetweenAttacks = 2f;
+    public float attackDamage = 1f;
     private float attackTimer;
     
 
@@ -87,7 +88,7 @@ public class EnemyAI : Enemy
         attackTimer -= Time.deltaTime;
         if(attackTimer <= 0f)
         {
-            Debug.Log("¡Atacando al jugador!");
+            InventorySystem.Instance.TakeDamage(attackDamage);
 
             attackTimer = timeBetweenAttacks;
         }

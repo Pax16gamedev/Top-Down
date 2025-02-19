@@ -15,14 +15,17 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] GridLayoutGroup inventoryGrid;
     [SerializeField] GridLayoutGroup inventoryQuickSlotGrid;
     [SerializeField] GridLayoutGroup hudQuickSlotGroup;
+    [SerializeField] GridLayoutGroup healthBarGroup;
 
     [SerializeField] GameObject inventorySlotPrefab;
     [SerializeField] GameObject inventoryQuickSlotPrefab;
     [SerializeField] GameObject hudQuickSlotPrefab;
+    [SerializeField] GameObject healthContainerPrefab;
 
     [SerializeField] int selectedQuickSlot;
     [SerializeField] int inventorySize;
     [SerializeField] int quickSlotSize;
+    [SerializeField] private float health = 10;
 
     ItemSlot[] inventorySlots;
     ItemSlot[] inventoryQuickSlots;
@@ -45,6 +48,7 @@ public class InventorySystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitSlots();
+        SetHealth((int)health);
     }
 
     private void InitSlots()
@@ -134,5 +138,27 @@ public class InventorySystem : MonoBehaviour
         var stack = inventoryQuickSlots[selectedQuickSlot].ItemInfo.Stack;
         var used = stack ? stack.Use(count) : 0;
         return used > 0 ? (stack.Item, used) : (null, 0);
+    }
+
+    public void SetHealth(int health)
+    {
+        if(health > healthBarGroup.transform.childCount)
+            for(int i = healthBarGroup.transform.childCount; i < health; i++)
+                Instantiate(healthContainerPrefab, healthBarGroup.transform);
+
+        if(health < healthBarGroup.transform.childCount)
+            foreach(var container in healthBarGroup.transform.OfType<Transform>().Skip(Math.Max(health, 0)).Reverse().ToList())
+                Destroy(container.gameObject);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        SetHealth((int)health);
+
+        if(health <= 0)
+        {
+            // TODO: Game over
+        }
     }
 }
