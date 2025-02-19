@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2726545519630705933}
   - component: {fileID: 870347121748842520}
   - component: {fileID: 2255257011061255076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   attackRadius: 0.75
-  timeBetweenAttcks: 0
+  timeBetweenAttcks: 0.75
 --- !u!114 &2255257011061255076
 MonoBehaviour:
   m_ObjectHideFlags: 0
