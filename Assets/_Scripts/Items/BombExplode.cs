@@ -20,6 +20,8 @@ public class BombExplode : MonoBehaviour
 
         foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, radius, destroyLayer))
         {
+            if(col.gameObject.TryGetComponent<NonPersistentDestroyable>(out var dest))
+                dest.DestroyPermanent();
             Destroy(col.gameObject);
         }
 
