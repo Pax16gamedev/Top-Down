@@ -97,19 +97,8 @@ public class InventorySystem : MonoBehaviour
     {
         if(gameoverImage.isActiveAndEnabled && Input.anyKeyDown)
         {
-            foreach(var slot in inventorySlots.Concat(inventoryQuickSlots).Concat(hudQuickSlots))
-                if(slot && slot.ItemInfo)
-                    slot.ItemInfo.Stack = null;
-            foreach(var itemInfo in itemInfo)
-                itemInfo.Stack = null;
-            GameManagerSO.Instance.NonPersistentItems.Clear();
-            health = initialHealth;
-            SetHealth((int)health);
-            itemsInventario.Clear();
-            foreach(var slot in inventorySlots)
-                slot.gameObject.SetActive(false);
-            itemsCollected = 0;
-            gameoverImage.gameObject.SetActive(false);
+            ResetInventoryStatus();
+            GameManagerSO.Instance.ResetStatus();
             SceneManager.LoadScene(1);
         }
 
@@ -128,6 +117,23 @@ public class InventorySystem : MonoBehaviour
                 inventoryQuickSlots[selectedQuickSlot].Selected = true;
             }
         }
+    }
+
+    private void ResetInventoryStatus()
+    {
+        foreach(var slot in inventorySlots.Concat(inventoryQuickSlots).Concat(hudQuickSlots))
+            if(slot && slot.ItemInfo)
+                slot.ItemInfo.Stack = null;
+        foreach(var itemInfo in itemInfo)
+            itemInfo.Stack = null;
+        GameManagerSO.Instance.NonPersistentItems.Clear();
+        health = initialHealth;
+        SetHealth((int)health);
+        itemsInventario.Clear();
+        foreach(var slot in inventorySlots)
+            slot.gameObject.SetActive(false);
+        itemsCollected = 0;
+        gameoverImage.gameObject.SetActive(false);
     }
 
     public void AddNewItem(ItemSO item)

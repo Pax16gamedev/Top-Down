@@ -58,4 +58,9 @@ public class GameManagerSO : SingletonScriptableObject<GameManagerSO>
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);
     }
+
+    public void ResetStatus()
+    {
+        sceneLoaded = false;
+    }
 }
